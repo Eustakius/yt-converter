@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-bg text-sigil overflow-hidden selection:bg-sigil selection:text-black;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+}
+
+.glitch-text:hover {
+    text-shadow: 2px 0 #fff, -2px 0 #ff003c;
+}
+
+/* Aggressive Reset for Browser Defaults */
+*:focus {
+    outline: none !important;
+}
+
+/* Remove Blue Autofill Background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #000 inset !important;
+    -webkit-text-fill-color: #e5e5e5 !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
