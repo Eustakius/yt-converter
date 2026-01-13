@@ -9,7 +9,8 @@
     <img src="https://img.shields.io/badge/VERSION-2.0.0-e5e5e5?style=for-the-badge&labelColor=000000" alt="Version 2.0">
 </p>
 
-<div align="center">
+</p>
+
 ```text
    __  __  _____      _____                           _           
    \ \/ / |_   _|    / ____|                         | |          
@@ -18,6 +19,8 @@
      | |    | |     | |___| (_) | | | \ V /  __/ |  | ||  __/ |   
      |_|    |_|      \_____\___/|_| |_|\_/ \___|_|   \__\___|_|   
 ```
+
+<div align="center">
   <p><b>ADVANCED // MEDIA // EXTRACTION // PROTOCOL</b></p>
 </div>
 
