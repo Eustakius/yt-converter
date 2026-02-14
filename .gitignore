@@ -22,3 +22,16 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Binaries
+/bin/*.exe
+/bin/ffmpeg
+/bin/ffprobe
+/bin/yt-dlp
+
+# Local Database
+/database/*.sqlite
+
+# Temp
+/storage/app/temp/*
+!.gitignore

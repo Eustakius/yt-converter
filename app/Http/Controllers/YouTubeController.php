@@ -11,7 +11,19 @@ class YouTubeController extends Controller
 
     public function __construct()
     {
-        $this->ytDlpPath = base_path('bin/yt-dlp');
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            $this->ytDlpPath = base_path('bin/yt-dlp.exe');
+        } else {
+            $this->ytDlpPath = base_path('bin/yt-dlp');
+        }
+    }
+
+    private function getCleanEnv()
+    {
+        $env = getenv();
+        // Unset Python environment variables that might interfere with the embedded Python in yt-dlp.exe
+        unset($env['PYTHONHOME'], $env['PYTHONPATH']);
+        return $env;
     }
 
     public function info(Request $request)
@@ -26,7 +38,7 @@ class YouTubeController extends Controller
             return response()->json(['error' => 'yt-dlp binary not found at ' . $this->ytDlpPath], 500);
         }
 
-        $process = Process::run([
+        $process = Process::env($this->getCleanEnv())->run([
             $this->ytDlpPath,
             '--dump-single-json',
             '--no-warnings',
@@ -86,7 +98,7 @@ class YouTubeController extends Controller
         }
 
         // Get title for filename
-        $titleResult = Process::run([
+        $titleResult = Process::env($this->getCleanEnv())->run([
             $this->ytDlpPath,
             '--get-title',
             '--no-warnings',
@@ -106,10 +118,15 @@ class YouTubeController extends Controller
         // Output template for yt-dlp
         $outputTemplate = $tempDir . '/' . $tempId . '.%(ext)s';
 
+        $ffmpegLocation = base_path('bin');
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            $ffmpegLocation = base_path('bin/ffmpeg.exe');
+        }
+
         $cmd = [
             $this->ytDlpPath,
             '--ffmpeg-location',
-            base_path('bin'),
+            $ffmpegLocation,
             '-o',
             $outputTemplate, // Output to file
             '--no-warnings',
@@ -120,23 +137,63 @@ class YouTubeController extends Controller
         ];
 
         if ($type === 'audio') {
-            $filename = $cleanTitle . '.mp3';
-            $cmd[] = '-x';
-            $cmd[] = '--audio-format';
-            $cmd[] = 'mp3';
-            $cmd[] = '-f';
-            $cmd[] = 'bestaudio/best';
+             // Audio Only
+             if ($quality === 'mkv') {
+                $filename = $cleanTitle . '.mkv';
+                $cmd[] = '-x';
+                $cmd[] = '--audio-format';
+                $cmd[] = 'vorbis'; // Vorbis is standard for MKV audio, or could use best
+                $cmd[] = '--audio-quality';
+                $cmd[] = '0'; // Best quality
+             } else {
+                $filename = $cleanTitle . '.mp3';
+                $cmd[] = '-x';
+                $cmd[] = '--audio-format';
+                $cmd[] = 'mp3';
+                $cmd[] = '--audio-quality';
+                $cmd[] = '0'; // Best quality
+             }
+             $cmd[] = '-f';
+             $cmd[] = 'bestaudio/best';
+
         } else {
-            $filename = $cleanTitle . '.mp4';
-            if ($quality) {
-                $cmd[] = '-f';
-                $cmd[] = "{$quality}+bestaudio/best";
+            // Video + Audio
+            $ext = ($quality === 'mkv') ? 'mkv' : 'mp4';
+            $filename = $cleanTitle . '.' . $ext;
+
+            // yt-dlp format selection
+            // We want best video + best audio, merged.
+            // If quality (resolution) is specified, we filter by it.
+            if ($quality && $quality !== 'mkv') {
+                 // Format: "bestvideo[height<=1080]+bestaudio/best"
+                 // Note: input 'quality' from frontend is currently just "1080" etc.
+                 // But wait, the previous code was: "{$quality}+bestaudio/best"
+                 // This implies $quality was a format ID like '137' or similar from the info endpoint?
+                 // Let's re-read the info endpoint.
+                 // Ah, in info(), 'qualityLabel' is user facing, 'itag' is format_id.
+                 // The frontend likely sends the format_id (itag) as 'quality'.
+                 // IF so, "{$quality}+bestaudio/best" means "video_format_id + bestaudio".
+                 // This is correct for specific selection.
+                 $cmd[] = '-f';
+                 $cmd[] = "{$quality}+bestaudio/best";
             } else {
                 $cmd[] = '-f';
                 $cmd[] = "bestvideo+bestaudio/best";
             }
+
             $cmd[] = '--merge-output-format';
-            $cmd[] = 'mp4';
+            $cmd[] = $ext;
+
+            // Fix for "No Audio" issue in MP4:
+            // YouTube high-res audio is often Opus, which many MP4 players don't support.
+            // We force conversion to AAC for MP4 containers to ensure compatibility.
+            if ($ext === 'mp4') {
+                $cmd[] = '--postprocessor-args';
+                // "Merger" logic might vary, but applying to ffmpeg generally works.
+                // We use "Merger" specifically if possible, or generic. 
+                // yt-dlp syntax: --postprocessor-args "NAME:ARGS"
+                $cmd[] = 'Merger:-c:v copy -c:a aac';
+            }
         }
 
         $cmd[] = $url;
@@ -145,7 +202,7 @@ class YouTubeController extends Controller
         set_time_limit(0);
 
         // Run the process synchronously to wait for file creation
-        $process = Process::timeout(3600)->run($cmd);
+        $process = Process::timeout(3600)->env($this->getCleanEnv())->run($cmd);
 
         if ($process->failed()) {
             return response()->json(['error' => 'Download failed', 'details' => $process->errorOutput()], 500);

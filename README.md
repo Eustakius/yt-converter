@@ -1,107 +1,108 @@
-
-<p align="center">
-  <img src="https://fontmeme.com/permalink/241014/c9f2d5b6e6e3c0b0a8f8d5f8a0e8c0e2.png" alt="CYBER_CONVERTER" border="0">
-</p>
-
-<p align="center">
-    <img src="https://img.shields.io/badge/SYSTEM-ONLINE-00ff00?style=for-the-badge&logo=linux&labelColor=000000" alt="System Online">
-    <img src="https://img.shields.io/badge/SECURITY-MAXIMUM-ff003c?style=for-the-badge&logo=shield&labelColor=000000" alt="Security Max">
-    <img src="https://img.shields.io/badge/VERSION-2.0.0-e5e5e5?style=for-the-badge&labelColor=000000" alt="Version 2.0">
-</p>
-
-</p>
-
-```text
-   __  __  _____      _____                           _           
-   \ \/ / |_   _|    / ____|                         | |          
-    \  /    | |_____| |     ___  _ ____   _____ _ __| |_ ___ _ __ 
-     | |    | |_____| |    / _ \| '_ \ \ / / _ \ '__| __/ _ \ '__|
-     | |    | |     | |___| (_) | | | \ V /  __/ |  | ||  __/ |   
-     |_|    |_|      \_____\___/|_| |_|\_/ \___|_|   \__\___|_|   
-```
+<div align="center">
+  <img src="public/banner.png" alt="YT-CONVERTER Banner" width="100%" />
+</div>
 
 <div align="center">
-  <p><b>ADVANCED // MEDIA // EXTRACTION // PROTOCOL</b></p>
+  
+  [![Laravel](https://img.shields.io/badge/CORE-LARAVEL_11-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+  [![React](https://img.shields.io/badge/INTERFACE-REACT-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org)
+  [![Windows](https://img.shields.io/badge/PLATFORM-WINDOWS_READY-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://microsoft.com)
+  [![Status](https://img.shields.io/badge/STATUS-OPERATIONAL-00FF00?style=for-the-badge&logo=signal&logoColor=black)]()
+
+  <br />
+
+  <h1>// YT-CONVERTER //</h1>
+  <h3>ADVANCED MEDIA EXTRACTION PROTOCOL</h3>
+
   <p>
-    <i>
-      "A monolithic, high-velocity interface for extracting audio and visual data. 
-      Engineered with Laravel 11 & React. Secured by Cybersigilism."
-    </i>
+    <i>"A high-velocity interface for extracting raw audio and visual data. Engineered for archivists."</i>
   </p>
 </div>
 
 ---
 
-### [ 000 ] // ABSTRACT
+## [ 001 ] // SYSTEM_ARCHITECTURE
 
-**YT-CONVERTER** renders the complex simple. It is a self-hosted implementation of the `yt-dlp` extraction engine, wrapped in a high-fidelity **Laravel 11** API and managed by a reactive **React** frontend. It is designed for archivists who demand **4K Resolution**, **Lossless Audio**, and **Zero Tracking**.
+**YT-CONVERTER** is a monolithic media extraction tool designed to bypass standard restrictions and deliver high-fidelity data. It fuses a **Laravel 11** backend with a reactive **React** frontend, utilizing `yt-dlp` and `ffmpeg` binaries for precision processing.
 
----
-
-### [ 001 ] // SYSTEM_OVERVIEW
-
-**YT-CONVERTER** is a high-performance, monolithic media extraction tool built on the **Laravel 11** architecture, fused with a **React** frontend. It utilizes `yt-dlp` and `ffmpeg` backend binary executables to bypass standard restrictions and deliver raw, high-fidelity audio/visual data.
-
-> [!IMPORTANT]
+> [!NOTE]
 > **AESTHETIC PROTOCOL: CYBERSIGILISM**
-> The interface is strictly governed by the Cybersigilism design language. Dark mode, glitch effects, scanlines, and raw data visualization are mandatory.
+> The interface uses a strict comprehensive design language characterized by dark modes, glitch effects, and raw data visualization.
 
----
+## [ 002 ] // CORE_CAPABILITIES
 
-### [ 002 ] // CORE_CAPABILITIES
+-   **[ RESOLUTION_MATRIX ]**: Supports up to **4K (2160p)** video extraction.
+-   **[ CONTAINER_FLEXIBILITY ]**: Native support for **MP4** and **MKV** formats.
+-   **[ AUDIO_EXTRACTION ]**: High-bitrate MP3/Vorbis conversion.
+-   **[ BINARY_FUSION ]**: Native `ffmpeg` integration for proper video/audio merging (Fixed silent audio issues).
+-   **[ AUTO_PATCHING ]**: Self-healing environment variables to prevent `yt-dlp` conflicts on Windows systems.
 
--   **[ REACTIVE_UI ]**: Instant feedback loop with glitch animations and precision input fields.
--   **[ FORMAT_MATRICES ]**: 
-    -   `VIDEO`: MP4 Container // H.264 // 4K - 1080p - 720p Support.
-    -   `AUDIO`: MP3 Extraction // 320kbps Target.
--   **[ BINARY_FUSION ]**: Server-side merging of high-definition video streams with separate audio tracks using local FFmpeg.
--   **[ SINGLE_ENTRY ]**: One command (`npm start`) initializes the entire stack (PHP/Laravel + Vite/Node).
+## [ 003 ] // INSTALLATION_PROTOCOL (WINDOWS)
 
----
+Follow this sequence to initialize the system on a local Windows environment.
 
-### [ 003 ] // DEPLOYMENT_SEQUENCE
-
-Prerequisites: `PHP 8.2+`, `Node.js 18+`, `Composer`.
-
-```bash
-# 1. CLONE_REPOSITORY
-git clone https://github.com/USERNAME/yt-converter.git
-
-# 2. INFILTRATE_DIRECTORY
+### PHASE 1: INFILTRATION
+```powershell
+# Clone the repository
+git clone https://github.com/Eustakius/yt-converter.git
 cd yt-converter
+```
 
-# 3. INITIALIZE_DEPENDENCIES
+### PHASE 2: DEPENDENCY_INJECTION
+```powershell
+# Install backend dependencies
 composer install
-npm install
 
-# 4. CONFIGURE_ENVIRONMENT
-cp .env.example .env
+# Install frontend dependencies
+npm install
+```
+
+### PHASE 3: ENVIRONMENT_CONFIGURATION
+```powershell
+# Initialize environment file
+copy .env.example .env
+
+# Generate application encryption key
 php artisan key:generate
 
-# 5. ACQUIRE_BINARIES (Auto-download script recommended)
-# Ensure binaries 'ffmpeg' and 'yt-dlp' exist in /bin/
+# Initialize local database
+# Ensure 'database/database.sqlite' exists (create if missing)
+type nul > database/database.sqlite
+php artisan migrate
+```
 
-# 6. EXECUTE_SYSTEM
+### PHASE 4: BINARY_ACQUISITION (CRITICAL)
+The system requires specific Windows executables to function.
+1.  Download **`ffmpeg.exe`** and **`ffprobe.exe`** (from gyan.dev).
+2.  Download **`yt-dlp.exe`** (from github.com/yt-dlp/yt-dlp).
+3.  Place all three files into the project's **`/bin`** directory.
+    -   `.../yt-converter/bin/ffmpeg.exe`
+    -   `.../yt-converter/bin/ffprobe.exe`
+    -   `.../yt-converter/bin/yt-dlp.exe`
+
+> **[ SYSTEM_UPDATE ]**: The `YouTubeController` has been patched to automatically direct to `.exe` paths on Windows and sanitize `PYTHONHOME` environment variables to prevent initiation errors.
+
+### PHASE 5: SYSTEM_IGNITION
+```powershell
+# Launch the full stack (Laravel Server + Vite Hot Reload)
 npm start
 ```
 
----
-
-### [ 004 ] // SYSTEM_SNAPSHOTS
-
-| **INTERFACE** | **DOWNLOADER** |
-|:---:|:---:|
-| <img src="https://i.imgur.com/placeholder.png" width="300" alt="UI" /> | <img src="https://i.imgur.com/placeholder.png" width="300" alt="DL" /> |
+Target URL: `http://127.0.0.1:8000`
 
 ---
 
-### [ 005 ] // LEGAL_DISCLAIMER
+## [ 004 ] // TROUBLESHOOTING
+
+| ERROR CODE | DIAGNOSIS | RESOLUTION |
+| :--- | :--- | :--- |
+| **500 SYSTEM ERROR** | `yt-dlp.exe` failed to start. | Ensure binaries are in `/bin`. The auto-patcher should handle path issues. |
+| **NO AUDIO** | FFmpeg merge failure. | **RESOLVED:** System auto-converts audio to AAC for MP4 compatibility. |
+| **PYTHON INIT FAIL** | Environment variable leak. | **RESOLVED:** The system now automatically unsets `PYTHON` env vars before execution. |
+
+---
+
+## [ 005 ] // LEGAL_DISCLAIMER
 
 > [!WARNING]
-> COMPLIANCE_CHECK: This tool is for educational purposes and personal archiving only. The user assumes full liability for all data extraction activities. Respect copyright protocols.
-
----
-
-<div align="center">
-    <code>SYSTEM_STATUS: STABLE // END_OF_FILE</code>
-</div>
+> **COMPLIANCE_CHECK**: This tool is for educational purposes and personal archiving only. The user assumes full liability for all data extraction activities. Respect copyright protocols.

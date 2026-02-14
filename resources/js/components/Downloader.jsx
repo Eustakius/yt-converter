@@ -47,7 +47,18 @@ const Downloader = () => {
         setError(null);
 
         try {
-            const downloadUrl = `/api/download?url=${encodeURIComponent(url)}&quality=${selectedFormat.itag}&type=${selectedType}`;
+            let typeParam = selectedType;
+            let qualityParam = selectedFormat.itag;
+
+            if (selectedType === 'mkv_video') {
+                typeParam = 'video';
+                qualityParam = 'mkv';
+            } else if (selectedType === 'mkv_audio') {
+                typeParam = 'audio';
+                qualityParam = 'mkv';
+            }
+
+            const downloadUrl = `/api/download?url=${encodeURIComponent(url)}&quality=${qualityParam}&type=${typeParam}`;
 
             const response = await axios({
                 url: downloadUrl,
@@ -224,10 +235,15 @@ const Downloader = () => {
                                             {/* Type Selector Dropdown */}
                                             <div className="relative inline-block text-left group/dropdown z-50">
                                                 <button className="flex items-center gap-2 bg-black border border-sigil/30 px-3 py-1 text-[10px] uppercase text-sigil hover:border-sigil transition-colors">
-                                                    <span>{selectedType === 'video' ? 'VIDEO (MP4)' : 'AUDIO (MP3)'}</span>
+                                                    <span>
+                                                        {selectedType === 'video' && 'VIDEO (MP4)'}
+                                                        {selectedType === 'audio' && 'AUDIO (MP3)'}
+                                                        {selectedType === 'mkv_video' && 'VIDEO (MKV)'}
+                                                        {selectedType === 'mkv_audio' && 'AUDIO (MKV)'}
+                                                    </span>
                                                     <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[4px] border-t-sigil"></div>
                                                 </button>
-                                                <div className="absolute right-0 mt-1 w-32 bg-black border border-sigil/30 shadow-xl opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 transform origin-top-right">
+                                                <div className="absolute right-0 mt-1 w-32 bg-black border border-sigil/30 shadow-xl opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 transform origin-top-right z-50">
                                                     <div className="py-1">
                                                         <button
                                                             onClick={() => setSelectedType('video')}
@@ -236,10 +252,22 @@ const Downloader = () => {
                                                             Video (MP4)
                                                         </button>
                                                         <button
+                                                            onClick={() => setSelectedType('mkv_video')}
+                                                            className={`block w-full text-left px-4 py-2 text-[10px] uppercase hover:bg-sigil hover:text-black transition-colors ${selectedType === 'mkv_video' ? 'text-accent' : 'text-sigil'}`}
+                                                        >
+                                                            Video (MKV)
+                                                        </button>
+                                                        <button
                                                             onClick={() => setSelectedType('audio')}
                                                             className={`block w-full text-left px-4 py-2 text-[10px] uppercase hover:bg-sigil hover:text-black transition-colors ${selectedType === 'audio' ? 'text-accent' : 'text-sigil'}`}
                                                         >
                                                             Audio (MP3)
+                                                        </button>
+                                                        <button
+                                                            onClick={() => setSelectedType('mkv_audio')}
+                                                            className={`block w-full text-left px-4 py-2 text-[10px] uppercase hover:bg-sigil hover:text-black transition-colors ${selectedType === 'mkv_audio' ? 'text-accent' : 'text-sigil'}`}
+                                                        >
+                                                            Audio (MKV)
                                                         </button>
                                                     </div>
                                                 </div>
