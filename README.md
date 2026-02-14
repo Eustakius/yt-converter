@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://fontmeme.com/permalink/241014/c9f2d5b6e6e3c0b0a8f8d5f8a0e8c0e2.png" alt="CYBER_CONVERTER" border="0">
+<img src="https://via.placeholder.com/600x120/0a0a0a/00ff88?text=YT-CONVERTER+2.0" alt="YT-CONVERTER" style="filter: drop-shadow(0 0 10px #00ff88);">
 
 <p>
     <img src="https://img.shields.io/badge/SYSTEM-ONLINE-00ff00?style=for-the-badge&logo=linux&labelColor=000000">
@@ -11,50 +11,40 @@
     <img src="https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white">
 </p>
 
-<p><em>A monolithic, high-velocity interface for extracting audio and visual data.<br>
-Engineered with Laravel 11 & React 18+. Secured by Cybersigilism.</em></p>
+<p><em>Monolithic media extraction engine. 4K • Lossless • Zero Tracking.<br>
+Laravel 11 API + React 18 Frontend. Cybersigilism Aesthetic.</em></p>
 
 </div>
 
 ---
 
-## 📡 SYSTEM OVERVIEW
+## 📡 SYSTEM ARCHITECTURE
 
-**YT-CONVERTER** renders complex media extraction simple. Self-hosted yt-dlp + FFmpeg engine wrapped in Laravel 11 API with reactive React 18+ frontend. Designed for archivists demanding **4K Resolution**, **Lossless Audio**, and **Zero Tracking**.
+**YT-CONVERTER** - Self-hosted yt-dlp + FFmpeg powered media extractor. Laravel 11 REST API with React 18+ reactive interface.
 
-**Aesthetic Protocol:** *CYBERSIGILISM* - Dark mode, glitch effects, scanlines, raw data visualization.
+**Core Protocol:** *CYBERSIGILISM* - Glitch art, scanlines, neon accents, dark mode.
 
-## 🚀 CORE CAPABILITIES
+## 🚀 EXTRACTION MATRIX
 
-| MODULE | SPECIFICATION | DESCRIPTION |
-|--------|---------------|-------------|
-| **REACTIVE_UI** | React 18+ | Instant feedback, glitch animations, precision inputs |
-| **VIDEO_MATRIX** | MP4/H.264 | 4K • 1080p • 720p, variable bitrate |
-| **AUDIO_MATRIX** | MP3/320kbps | Lossless extraction pipeline |
-| **BINARY_FUSION** | FFmpeg Core | HD video + separate audio merging |
-| **SINGLE_ENTRY** | `npm start` | One-command full stack init |
+| MODULE | FORMAT | CAPABILITIES |
+|--------|--------|--------------|
+| **REACTIVE_UI** | React 18+ | Glitch FX • Real-time progress • Precision controls |
+| **VIDEO** | H.264/MP4 | 4K • 1080p • 720p • Adaptive bitrate |
+| **AUDIO** | AAC/MP3 | 320kbps • Lossless FLAC • Channel isolation |
+| **FUSION** | FFmpeg | Video+Audio muxing • Hardware acceleration |
+| **EXECUTION** | `npm start` | Monolith stack • Zero-config deploy |
 
-## 🛠 DEPLOYMENT SEQUENCE
+## 🧬 DEPLOYMENT
 
-**Prerequisites:** PHP 8.2+, Node.js 18+, Composer, FFmpeg, yt-dlp
+**Requirements:** PHP 8.2+ • Node 18+ • Composer • FFmpeg • yt-dlp
 
 ```bash
-# 1. Clone repository
 git clone https://github.com/Eustakius/yt-converter.git
-
-# 2. Enter directory
 cd yt-converter
-
-# 3. Install dependencies
 composer install && npm install
-
-# 4. Configure environment
-cp .env.example .env
-php artisan key:generate
-
-# 5. Ensure binaries: ffmpeg, yt-dlp in PATH
-# 6. Execute system
+cp .env.example .env && php artisan key:generate
 npm start
+
 📸 SYSTEM SNAPSHOTS
 <div align="center"> <img src="https://i.imgur.com/placeholder-ui.png" width="350" alt="Interface" /> <img src="https://i.imgur.com/placeholder-dl.png" width="350" alt="Downloader" /> </div>
 🎨 CYBERSIGILISM DESIGN
