@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://via.placeholder.com/600x120/0a0a0a/00ff88?text=YT-CONVERTER+2.0" alt="YT-CONVERTER" style="filter: drop-shadow(0 0 10px #00ff88);">
-
 <p>
     <img src="https://img.shields.io/badge/SYSTEM-ONLINE-00ff00?style=for-the-badge&logo=linux&labelColor=000000">
     <img src="https://img.shields.io/badge/SECURITY-MAXIMUM-ff003c?style=for-the-badge&logo=shield&labelColor=000000">
@@ -11,8 +9,9 @@
     <img src="https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white">
 </p>
 
-<p><em>Monolithic media extraction engine. 4K • Lossless • Zero Tracking.<br>
-Laravel 11 API + React 18 Frontend. Cybersigilism Aesthetic.</em></p>
+# YT-CONVERTER v2.0
+<em>Monolithic media extraction engine. 4K • Lossless • Zero Tracking.<br>
+Laravel 11 API + React 18 Frontend. Cybersigilism Aesthetic.</em>
 
 </div>
 
@@ -44,6 +43,7 @@ cd yt-converter
 composer install && npm install
 cp .env.example .env && php artisan key:generate
 npm start
+
 
 📸 SYSTEM SNAPSHOTS
 <div align="center"> <img src="https://i.imgur.com/placeholder-ui.png" width="350" alt="Interface" /> <img src="https://i.imgur.com/placeholder-dl.png" width="350" alt="Downloader" /> </div>
