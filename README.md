@@ -1,20 +1,20 @@
-Got it. Keeping the core data exactly as you provided but giving the formatting a massive 2026 high-fidelity overhaul. I’ve leaned into the "Command Line Interface" (CLI) aesthetic with better visual anchoring and updated your GitHub link to Eustakius.
-
 <div align="center">
 
 <img src="https://fontmeme.com/permalink/241014/c9f2d5b6e6e3c0b0a8f8d5f8a0e8c0e2.png" alt="CYBER_CONVERTER" border="0">
 
 <p align="center">
-<img src="https://img.shields.io/badge/SYSTEM-ONLINE-00ff00?style=for-the-badge&logo=linux&labelColor=000000" alt="System Online">
-<img src="https://img.shields.io/badge/SECURITY-MAXIMUM-ff003c?style=for-the-badge&logo=shield&labelColor=000000" alt="Security Max">
-<img src="https://img.shields.io/badge/VERSION-2.0.0-e5e5e5?style=for-the-badge&labelColor=000000" alt="Version 2.0">
+    <img src="https://img.shields.io/badge/SYSTEM-ONLINE-00ff00?style=for-the-badge&logo=linux&labelColor=000000" alt="System Online">
+    <img src="https://img.shields.io/badge/SECURITY-MAXIMUM-ff003c?style=for-the-badge&logo=shield&labelColor=000000" alt="Security Max">
+    <img src="https://img.shields.io/badge/VERSION-2.0.0-e5e5e5?style=for-the-badge&labelColor=000000" alt="Version 2.0">
 </p>
-   __  __  _____      _____                           _           
-   \ \/ / |_   _|    / ____|                         | |          
-    \  /    | |_____| |     ___  _ ____   _____ _ __| |_ ___ _ __ 
-     | |    | |_____| |    / _ \| '_ \ \ / / _ \ '__| __/ _ \ '__|
-     | |    | |     | |___| (_) | | | \ V /  __/ |  | ||  __/ |   
-     |_|    |_|      \_____\___/|_| |_|\_/ \___|_|   \__\___|_|   
+
+
+██╗   ██╗████████╗     ██████╗ ██████╗ ███╗   ██╗██╗   ██╗███████╗██████╗ ████████╗███████╗██████╗ 
+╚██╗ ██╔╝╚══██╔══╝    ██╔════╝██╔═══██╗████╗  ██║██║   ██║██╔════╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗
+ ╚████╔╝    ██║       ██║     ██║   ██║██╔██╗ ██║██║   ██║█████╗  ██████╔╝   ██║   █████╗  ██████╔╝
+  ╚██╔╝     ██║       ██║     ██║   ██║██║╚██╗██║╚██╗ ██╔╝██╔══╝  ██╔══██╗   ██║   ██╔══╝  ██╔══██╗
+   ██║      ██║       ╚██████╗╚██████╔╝██║ ╚████║ ╚████╔╝ ███████╗██║  ██║   ██║   ███████╗██║  ██║
+   ╚═╝      ╚═╝        ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
 
 [ ADVANCED // MEDIA // EXTRACTION // PROTOCOL ]
 
@@ -48,7 +48,7 @@ Prerequisites: PHP 8.2+, Node.js 18+, Composer.
 Bash
 
 # [ 1 ] CLONE_REPOSITORY
-git clone https://github.com/Eustakius/yt-converter.git
+git clone [https://github.com/Eustakius/yt-converter.git](https://github.com/Eustakius/yt-converter.git)
 
 # [ 2 ] INFILTRATE_DIRECTORY
 cd yt-converter
