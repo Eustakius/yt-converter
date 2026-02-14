@@ -43,7 +43,7 @@ cd yt-converter
 composer install && npm install
 cp .env.example .env && php artisan key:generate
 npm start
-
+```
 
 📸 SYSTEM SNAPSHOTS
 <div align="center"> <img src="https://i.imgur.com/placeholder-ui.png" width="350" alt="Interface" /> <img src="https://i.imgur.com/placeholder-dl.png" width="350" alt="Downloader" /> </div>
@@ -53,4 +53,4 @@ Digital sigils + glitch art + neon accents on black. Scanlines, raw data visuali
 ⚖️ LEGAL DISCLAIMER
 
 For educational purposes and personal archiving only. User assumes full liability. Respect copyright protocols. yt-dlp terms apply.
-<div align="center"> <code>SYSTEM_STATUS: STABLE // ARCHITECTURE: MONOLITH // LICENSE: MIT<br> © 2026 Eustakius | Made with Cybersigilism</code> </div> ```
+<div align="center"> <code>SYSTEM_STATUS: STABLE // ARCHITECTURE: MONOLITH // LICENSE: MIT<br> © 2026 Eustakius | Made with Cybersigilism</code> </div>
